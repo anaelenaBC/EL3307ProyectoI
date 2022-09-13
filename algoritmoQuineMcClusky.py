@@ -1,30 +1,12 @@
-def main():
-    cantidadVariables = 4
-    minterminosUtilizados = [1,4,6,15]
-    resultado = algoritmoQuineMcClusky(cantidadVariables, minterminosUtilizados)
-    ecuacionSimplificada = resultado[0]
-    tiempoEjecucion = resultado[1]
-    #print(resultado)
-
 def algoritmoQuineMcClusky(cantidadVariables, minterminosUtilizados):
     todosMinterminos = formarTodosMinterminos(cantidadVariables)
-    
-    #[[indiceMintermino], [valorBinarioMintermino], 0]
     minterminos = seleccionarMinterminos(todosMinterminos, minterminosUtilizados)
-
-    #[[indicesMinterminos], [valorBinarioMintermino], cantidadUnos]
     minterminosAgrupadosCantidadUnos = agruparMinterminosCantidadUnos(minterminos, cantidadVariables)
-
     posibleSimplificar = verificarPosibleSimplificar(minterminosAgrupadosCantidadUnos)
-
     while (posibleSimplificar):
         minterminosAgrupadosCantidadUnos = simplificar(minterminosAgrupadosCantidadUnos, cantidadVariables)
         posibleSimplificar = verificarPosibleSimplificar(minterminosAgrupadosCantidadUnos)
-
-    print(minterminosAgrupadosCantidadUnos)
     implicantesPrimosEsenciales = encontrarImplicantesPrimosEsenciales(minterminosAgrupadosCantidadUnos) 
-
-
     return [0,0]
 
 def formarTodosMinterminos(cantidadVariables):
@@ -131,8 +113,3 @@ def encontrarImplicantesPrimosEsenciales(minterminosAgrupadosCantidadUnos):
     minterminos = []
     for grupoCantidadUnos in minterminosAgrupadosCantidadUnos:
         pass
-    
-
-
-
-main()

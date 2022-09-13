@@ -1,6 +1,8 @@
 from tkinter import *
 from os import *
 
+from algoritmoQuineMcClusky import *
+
 def abrirVentanaError(ventanaPrincipal):
     ventanaError = Toplevel(ventanaPrincipal)
     ventanaError.geometry('300x100')
@@ -26,8 +28,8 @@ def ejecutarAlgoritmoQuineMcClusky(ventanaPrincipal, numeroVariables, sumaMinter
     if (minterminoInvalido):
         abrirVentanaError(ventanaPrincipal)
     else:
-        print(minterminosColocados)
-
+        resultado = algoritmoQuineMcClusky(cantidadVariables, sumaMinterminos)
+        print(resultado)
 
 def definirCaracteristicasVentanaPrincipal(ventanaPrincipal):
     ventanaPrincipal.geometry('400x350')
